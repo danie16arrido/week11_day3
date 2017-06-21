@@ -16,5 +16,5 @@
   - There are 3 different types of `"ingredients"` on the beer object we get back - `"malt"`, `"hops"`, and `"yeast"`. You can choose which to display, or if you're feeling ambitious, try to combine all three into one array and display them all.
   - Refactor to only show details about one beer, and add a dropdown to select the beer to display
   
-![Alt text](https://github.com/danie16arrido/MoneyCashBoard/blob/master/MoneyCashBoard_ER.png)
+![Alt text](https://github.com/danie16arrido/week11_day3/blob/master/ScreenShoot.png)
 

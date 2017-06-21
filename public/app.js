@@ -10,19 +10,81 @@ var app = function(){
 }
 
 var handleSelect =  function( event ) {
-  displayBeerInfo( this.value );
-  getBeerObject( this.value );
+  var selectedBeer = getBeerObject( this.value );
+  displayBeerInfo( selectedBeer );
 };
+
+var displayIngredientsInfo = function( beerIngredients ) {
+  var ingredients = createIngredients( beerIngredients );  
+  var ingredientsElement = getHtmlObjectById('ingredients')
+  ingredientsElement.innerHTML = "";
+  ingredientsElement.appendChild(ingredients)
+}
+
+var createIngredients = function( beerIngredients ){
+
+  var ingredientsData = document.createElement( 'dl' );
+  addHopsData( ingredientsData, beerIngredients);
+  addMaltData( ingredientsData, beerIngredients );
+  addYeastData ( ingredientsData, beerIngredients );
+  
+  return ingredientsData;
+}
+
+var addYeastData = function( ingredientsData, beerIngredients ) {
+  var yeastData = document.createElement( 'dt' );
+  yeastData.innerText = "Yeast";
+  ingredientsData.appendChild(yeastData)
+  var dd = document.createElement('dd')
+  dd.innerText = beerIngredients.yeast
+  ingredientsData.appendChild(dd)
+}
+
+var addMaltData = function( ingredientsData, beerIngredients ){
+  var malt = beerIngredients.malt;
+  var maltData = document.createElement( 'dt' );
+  maltData.innerText = "Malta";
+  ingredientsData.appendChild(maltData)
+  for( var element of malt){
+    var dd = document.createElement( 'dd' );
+    dd.innerText = element.amount.value + " g. of " + element.name;
+    ingredientsData.appendChild(dd)
+  }
+}
+
+var addHopsData =  function( ingredientsData, beerIngredients){
+  var hops = beerIngredients.hops;
+  var hopsData = document.createElement( 'dt' );
+  hopsData.innerText = "Hops";
+  ingredientsData.appendChild(hopsData)
+  for( var element of hops){
+    var dd = document.createElement( 'dd' );
+    dd.innerText = element.amount.value + " g. of " +element.attribute + " " + element.name;
+    ingredientsData.appendChild(dd)
+  }
+}
+
+var displayImg = function( url ){
+  var imgElement = getHtmlObjectById('image');
+  imgElement.src = url;
+}
 
 var displayBeerInfo = function( aBeer ) {
-  displayName( aBeer );
+  displayName( aBeer.name );
+  displayDescription( aBeer.tagline);
+  displayImg( aBeer.image_url );
+  displayIngredientsInfo( aBeer.ingredients );
 
 };
+
+var displayDescription = function( tagline ) {
+  var description = getHtmlObjectById('description');
+  description.innerText = tagline;
+}
 
 var getBeerObject = function( beerSelected ){
   for(var beer of beerData){
     if(beerSelected === beer.name){
-      console.log( beer )
       return beer;
     }
   }

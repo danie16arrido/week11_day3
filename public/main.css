@@ -1,3 +1,5 @@
+
+
 main{
   width: 300px;
   margin: 0 auto;
@@ -13,5 +15,48 @@ input{
 
 .album{
   padding: 5px;
+}
+
+select {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1em;
+}
+
+.className {
+  font-size: 3em;
+  padding: 20px;
+  padding-bottom: 0px;
+  color: burlywood;
+}
+.description {
+  padding: 10px;
+  font-size: 2em;
+  color: #511970;
+  font-family: 'Bubbler One', sans-serif;
+  font-weight: bold;
+}
+
+img {
+  height: 300px;
+  padding: 20px;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: black;
+}
+
+.classIngredients {
+  font-size: 1.2em;
+  align-content: space-between;
+  padding: 10px;
+}
+
+dt {
+  font-weight: bold;
+  font-size: 1.5em;
+  align-content: space-between;
+}
+
+body {
+  text-align: center;
 }
 
